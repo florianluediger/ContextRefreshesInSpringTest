@@ -1,0 +1,31 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.6.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'de.adesso.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '12'
+
+repositories {
+	mavenCentral()
+	jcenter()
+}
+
+test {
+	useJUnitPlatform()
+	systemProperty 'de.adesso.junitinsights.enabled', 'true'
+	systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testCompile 'org.junit.jupiter:junit-jupiter-api:5.1.0'
+	testCompile 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
+	testCompile 'de.adesso:junit-insights:1.1.0'
+	testCompile 'org.junit.platform:junit-platform-launcher:1.1.0'
+	compile 'org.springframework.boot:spring-boot-starter-web:2.1.6.RELEASE'
+}
